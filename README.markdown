@@ -20,7 +20,7 @@ Users
 -name
 ```
 Places
-```ruby
+```
 -id
 -name
 -attractions
