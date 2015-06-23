@@ -25,6 +25,7 @@ Places
 -name
 -attractions
 -age requirement
+-hours of operation
 -address
 -parking garage - boolean
 ```
