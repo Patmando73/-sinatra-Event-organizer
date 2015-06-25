@@ -1,0 +1,8 @@
+<h1>This is a list of all the products.</h1>
+<% all =  User.all%>
+<% all.each do |d|%>
+    <p> <%="name: #{d.name}}"%></p>
+<% end %>
+
+
+<a href="/home">GO HOME!</a>
