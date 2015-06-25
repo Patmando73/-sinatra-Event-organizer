@@ -1,4 +1,4 @@
-get "/save-user" do
+get "/users/save-user" do
 
   @new_user = User.add({"name" => params["name"]})
 
@@ -6,7 +6,7 @@ get "/save-user" do
 end
 
 
-get "/save-change-user" do
+get "/users/save-change-user" do
 
   @d = User.new({"id" => params["x"], "name" => params["name"]})
 
@@ -15,13 +15,13 @@ get "/save-change-user" do
   erb :"users/save-change-user"
 end
 
-get "/edit-user-form" do
+get "/users/edit-user-form" do
   @d = User.find(params["user_id"].to_i).first
 
   erb :"users/edit-user-form"
 end
 
-get "/confirm-delete-user" do
+get "/users/confirm-delete-user" do
   @d = User.find(params["user_id"].to_i).first
   @name = @d.name
   @d.delete
@@ -62,6 +62,12 @@ end
 
 
 
+
+
+
+get "/users/:webpage" do
+  erb :"users/#{params["webpage"]}"
+end
 
 get "/:webpage" do
   erb :"users/#{params["webpage"]}"

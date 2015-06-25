@@ -1,3 +1,3 @@
-get "/:webpage" do
+get "/places/:webpage" do
   erb :"places/#{params["webpage"]}"
 end
