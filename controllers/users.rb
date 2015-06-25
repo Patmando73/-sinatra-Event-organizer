@@ -1,4 +1,4 @@
-get "/users/save-user" do
+get "/save-user" do
 
   @new_user = User.add({"name" => params["name"]})
 
@@ -6,7 +6,7 @@ get "/users/save-user" do
 end
 
 
-get "/users/save-change-user" do
+get "/save-change-user" do
 
   @d = User.new({"id" => params["x"], "name" => params["name"]})
 
@@ -15,13 +15,13 @@ get "/users/save-change-user" do
   erb :"users/save-change-user"
 end
 
-get "/users/edit-user-form" do
+get "/edit-user-form" do
   @d = User.find(params["user_id"].to_i).first
 
   erb :"users/edit-user-form"
 end
 
-get "/users/confirm-delete-user" do
+get "/confirm-delete-user" do
   @d = User.find(params["user_id"].to_i).first
   @name = @d.name
   @d.delete
@@ -29,46 +29,57 @@ get "/users/confirm-delete-user" do
   erb :"users/confirm-delete-user"
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-get "/users/:webpage" do
-  erb :"users/#{params["webpage"]}"
+get "/manage-user" do
+  erb :"users/manage-user"
 end
 
-get "/:webpage" do
-  erb :"users/#{params["webpage"]}"
+get "/delete-user" do
+  erb :"users/delete-user"
 end
+
+get "/view-users" do
+  erb :"users/view-users"
+end
+
+get "/edit-user-list" do
+  erb :"users/edit-user-list"
+end
+
+get "/new-user-form" do
+  erb :"users/new-user-form"
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
