@@ -1,6 +1,6 @@
-<h1>Who would you like to delete?</h1>
+<h1>Please chose a user to change</h1>
 
-<form action="/confirm-delete-user">
+<form action="/edit-user-form">
   <%User.all.each do |b|  %>
       <label for="<%= b.id %>"><%= b.name %></label>
       <input id= "<%= b.id %>" type="radio"  name="user_id" value="<%=b.id%>"><br>

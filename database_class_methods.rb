@@ -64,10 +64,23 @@ module DatabaseClassMethods
 
     table_name = self.to_s.pluralize.underscore
 
-    CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{record_id}")
+    results = CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{record_id}")
+    results_as_objects = []
+
+    results.each do |hash|
+        results_as_objects << self.new(hash)
+    end
+  return results_as_objects
   end
 
+  def find_as_object(id)
+    @id = id
 
 
-
+  end
 end
+
+
+
+
+

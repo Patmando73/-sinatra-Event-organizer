@@ -24,11 +24,30 @@ module DatabaseInstanceMethods
   end
 
   def save
-    if DATABASE.execute("UPDATE prodcut_categories SET category_name = '#{category_name}' WHERE id = #{@id};")
-      return true
-    else
-      return false
-    end
-  end
+    table = self.class.to_s.pluralize.underscore
 
+    instance_variables = self.instance_variables
+
+    attribute_hash = {}
+
+    instance_variables.each do |variable|
+      attribute_hash["#{variable.slice(1..-1)}"] = self.send("#{variable.slice(1..-1)}")
+    end
+
+    individual_instance_variables = []
+
+    attribute_hash.each do |key, value|
+      if value.is_a?(String)
+        individual_instance_variables << "#{key} = '#{value}'"
+      else
+        individual_instance_variables << "#{key} = #{value}"
+      end
+    end
+
+    for_sql = individual_instance_variables.join(', ')
+
+    CONNECTION.execute("UPDATE #{table} SET #{for_sql} WHERE id = #{self.id}")
+
+    return self
+  end
 end
