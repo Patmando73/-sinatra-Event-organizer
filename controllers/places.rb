@@ -14,7 +14,7 @@ end
 
 get "/save-change-place" do
 
-  @place = Place.new({"id" => params["x"], "name" => params["name"]})
+  @place = Place.new({"id" => params["x"], "name" => params["name"], "address" => params["address"], "age_requirement" => params["age_requirement"], "hours_of_operation" => params["hours_of_operation"], "attractions" => params["attractions"], "parking_garage" => params["parking_garage"]})
 
   @place.save
 

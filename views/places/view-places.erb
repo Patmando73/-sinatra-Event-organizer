@@ -4,11 +4,16 @@
 <ol>
   <% @all.each do |d|%>
       <li>
-      <strong>Name:</strong> <%="#{d.name}" %><br>
-      <strong>Address:</strong> <%="#{d.address}"%><br>
-      <strong>Attractions:</strong> <%="#{d.attractions}"%><br>
-      <strong>Hours of operation:</strong> <%="#{d.hours_of_operation}"%><br>
-      <strong>Age requirement:</strong> <%="#{d.age_requirement}"%><br>
+        <strong>Name:</strong> <%="#{d.name}" %><br>
+        <strong>Address:</strong> <%="#{d.address}"%><br>
+        <strong>Attractions:</strong> <%="#{d.attractions}"%><br>
+        <strong>Hours of operation:</strong> <%="#{d.hours_of_operation}"%><br>
+        <strong>Age requirement:</strong> <%="#{d.age_requirement}"%><br>
+        <strong>Parking garage:</strong>  <% if d.parking_garage == "true"  %>
+            <%= "Yes" %><br>
+            <% elsif d.parking_garage == "false" %>
+            <%= "No" %>
+            <% end %>
         <br>
       </li>
   <% end %>
