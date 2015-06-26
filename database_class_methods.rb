@@ -5,6 +5,8 @@ module DatabaseClassMethods
 
   # Add a new record to the database.
   #
+  # options = a hash of keys and values that are split to be inserted into the database
+  #
   # Returns an Object.
   def add(options={})
 
@@ -64,19 +66,8 @@ module DatabaseClassMethods
 
     table_name = self.to_s.pluralize.underscore
 
-    results = CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{record_id}")
-    results_as_objects = []
-
-    results.each do |hash|
-        results_as_objects << self.new(hash)
-    end
-  return results_as_objects
-  end
-
-  def find_as_object(id)
-    @id = id
-
-
+    results = CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{record_id}").first
+    self.new(results)
   end
 end
 

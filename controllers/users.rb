@@ -8,25 +8,25 @@ end
 
 get "/save-change-user" do
 
-  @d = User.new({"id" => params["x"], "name" => params["name"]})
+  @user = User.new({"id" => params["x"], "name" => params["name"]})
 
-  @d.save
+  @user.save
 
   erb :"users/save-change-user"
 end
 
 get "/edit-user-form" do
-  @d = User.find(params["user_id"].to_i).first
+  @user = User.find(params["user_id"].to_i)
 
   erb :"users/edit-user-form"
 end
 
 get "/confirm-delete-user" do
-  @d = User.find(params["user_id"].to_i).first
-  @name = @d.name
-  @d.delete
+  @user = User.find(params["user_id"].to_i)
+  @name = @user.name
+  @user.delete
 
-  erb :"users/confirm-delete-user"
+  erb :"main/home"
 end
 
 get "/manage-user" do
@@ -38,6 +38,8 @@ get "/delete-user" do
 end
 
 get "/view-users" do
+  @all =  User.all
+
   erb :"users/view-users"
 end
 

@@ -23,6 +23,17 @@ module DatabaseInstanceMethods
     CONNECTION.execute("DELETE FROM #{table_name} WHERE id = #{@id}")
   end
 
+
+
+
+
+
+  # This is an instance method that Takes all of the instance variables for an
+  # object and inserts the name of each attribute as a key and the value of that attribute as
+  # the value in a hash.
+  #
+  # This hash is then run through the .join(', ') and used to update data in the database.
+
   def save
     table = self.class.to_s.pluralize.underscore
 
