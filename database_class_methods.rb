@@ -30,8 +30,7 @@ module DatabaseClassMethods
 
 
     table_name = self.to_s.pluralize.underscore
-
-    binding.pry
+    
 
     CONNECTION.execute("INSERT INTO #{table_name} (#{column_names_for_sql}) VALUES (#{values_for_sql});")
 

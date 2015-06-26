@@ -1,0 +1,25 @@
+<h1>Lets make some changes!</h1>
+
+<form action="/save-change-place">
+  <input type="hidden" name="x" value="<%=@place.id%>">
+  <input value = "<%= @place.name %>" type="text" placeholder="Enter name" name="name">
+  <input value = "<%= @place.attractions %>" type="text" placeholder="Enter attractions!" name="attractions">
+  <input value = "<%= @place.hours_of_operation %>" type="text" placeholder="Enter hours of operation!" name="hours_of_operation">
+  <input value = "<%= @place.address %>" type="text" placeholder="Enter the address!" name="address">
+  <p>is there a parking garage?</p>
+  <select name="parking_garage">
+    <option>  true   </option>
+    <option>  false   </option>
+  </select>
+  <p>What is the age requirement?</p>
+
+  <select name="age_requirement">
+    <option>  1   </option>
+    <option>  2   </option>
+  </select>
+  <input type="submit">
+</form>
+
+
+
+<a href="/home">GO HOME!</a>

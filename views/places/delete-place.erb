@@ -1,0 +1,13 @@
+<h1>Who would you like to delete?</h1>
+
+<form action="/confirm-delete-place">
+  <%Place.all.each do |b|  %>
+      <label for="<%= b.id %>"><%= b.name %></label>
+      <input id= "<%= b.id %>" type="radio"  name="place_id" value="<%=b.id%>"><br>
+      <br>
+
+  <%end%>
+  <input type="submit">
+</form>
+
+<a href="/home">GO HOME!</a>

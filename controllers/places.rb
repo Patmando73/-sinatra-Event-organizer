@@ -12,10 +12,6 @@ end
 
 
 
-
-
-
-
 get "/save-change-place" do
 
   @place = Place.new({"id" => params["x"], "name" => params["name"]})
@@ -25,7 +21,7 @@ get "/save-change-place" do
   erb :"places/save-change-place"
 end
 
-get "/edit-palce-form" do
+get "/edit-place-form" do
   @place = Place.find(params["place_id"].to_i)
 
   erb :"places/edit-place-form"
@@ -54,7 +50,7 @@ get "/view-places" do
 end
 
 get "/edit-place-list" do
-  erb :"palces/edit-place-list"
+  erb :"places/edit-place-list"
 end
 
 

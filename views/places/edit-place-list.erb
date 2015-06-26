@@ -1,0 +1,13 @@
+<h1>Please chose a user to change</h1>
+
+<form action="/edit-place-form">
+  <%Place.all.each do |b|  %>
+      <label for="<%= b.id %>"><%= b.name %></label>
+      <input id= "<%= b.id %>" type="radio"  name="place_id" value="<%=b.id%>"><br>
+      <br>
+
+  <%end%>
+  <input type="submit">
+</form>
+
+<a href="/home">GO HOME!</a>

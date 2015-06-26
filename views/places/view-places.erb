@@ -1,0 +1,19 @@
+<h1>This is a list of all the places.</h1>
+
+
+<ol>
+  <% @all.each do |d|%>
+      <li>
+      <strong>Name:</strong> <%="#{d.name}" %><br>
+      <strong>Address:</strong> <%="#{d.address}"%><br>
+      <strong>Attractions:</strong> <%="#{d.attractions}"%><br>
+      <strong>Hours of operation:</strong> <%="#{d.hours_of_operation}"%><br>
+      <strong>Age requirement:</strong> <%="#{d.age_requirement}"%><br>
+        <br>
+      </li>
+  <% end %>
+</ol>
+
+
+
+<a href="/home">GO HOME!</a>

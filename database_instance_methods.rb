@@ -38,6 +38,7 @@ module DatabaseInstanceMethods
     table = self.class.to_s.pluralize.underscore
 
     # Uses self.instance_variables to sets instance_variables to the attributes of the object
+    # Without this line there would be no keys to add to the attribute_hash
 
     instance_variables = self.instance_variables
 
@@ -46,6 +47,8 @@ module DatabaseInstanceMethods
     # Adds the attributes to the attribute_hash as keys
     #
     # self.send gets the value of each attribute by using its getter method
+    #
+    # variable.slice takes of the "@" part of the attributes
 
     instance_variables.each do |variable|
       attribute_hash["#{variable.slice(1..-1)}"] = self.send("#{variable.slice(1..-1)}")
