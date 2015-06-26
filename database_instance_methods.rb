@@ -37,13 +37,15 @@ module DatabaseInstanceMethods
   def save
     table = self.class.to_s.pluralize.underscore
 
-    # sets instance_variables to the attributes of the object
+    # Uses self.instance_variables to sets instance_variables to the attributes of the object
 
     instance_variables = self.instance_variables
 
     attribute_hash = {}
 
     # Adds the attributes to the attribute_hash as keys
+    #
+    # self.send gets the value of each attribute by using its getter method
 
     instance_variables.each do |variable|
       attribute_hash["#{variable.slice(1..-1)}"] = self.send("#{variable.slice(1..-1)}")
@@ -52,6 +54,8 @@ module DatabaseInstanceMethods
     individual_instance_variables = []
 
     # Adds the values of the attributes to the values of their corresponding keys
+    #
+    # value.is.a?(string) checks if the value is a string so it can put quotes around it as needed.
 
     attribute_hash.each do |key, value|
       if value.is_a?(String)

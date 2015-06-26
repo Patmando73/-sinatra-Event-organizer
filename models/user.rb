@@ -18,15 +18,4 @@ class User
     @id = options["id"]
     @name = options["name"]
   end
-
-
-
-
-
-
-
-
-
-
-
 end

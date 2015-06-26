@@ -2,11 +2,11 @@ get "/new-place-form" do
   erb :"places/new-place-form"
 end
 
-get "/save-palce" do
+get "/save-place" do
 
-  @new_place = Place.add({"name" => params["name"]})
+  @new_place = Place.add({"name" => params["name"], "address" => params["address"], "age_requirement" => params["age_requirement"], "hours_of_operation" => params["hours_of_operation"], "attractions" => params["attractions"], "parking_garage" => params["parking_garage"]})
 
-  erb :"places/save-palce"
+  erb :"places/save-place"
 end
 
 
