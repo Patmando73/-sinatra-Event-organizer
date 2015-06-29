@@ -1,0 +1,15 @@
+<h1>Where are you liking?</h1>
+
+
+<form action="/new-like">
+  <input type="hidden" name="user_id" value=<%= params["user_id"] %> >
+  <%Place.all.each do |b|  %>
+      <label for="<%= b.id %>"><%= b.name %></label>
+      <input id= "<%= b.id %>" type="radio"  name="place_id" value="<%=b.id%>"><br>
+      <br>
+
+  <%end%>
+  <input type="submit">
+</form>
+
+<a href="/home">GO HOME!</a>

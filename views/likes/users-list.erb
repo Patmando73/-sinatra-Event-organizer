@@ -1,0 +1,14 @@
+<h1>Who is making this like?</h1>
+
+
+<form action="/places-list">
+  <%@all.each do |b|  %>
+      <label for="<%= b.id %>"><%= b.name %></label>
+      <input id= "<%= b.id %>" type="radio"  name="user_id" value="<%=b.id%>"><br>
+      <br>
+
+  <%end%>
+  <input type="submit">
+</form>
+
+<a href="/home">GO HOME!</a>

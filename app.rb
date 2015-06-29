@@ -12,9 +12,11 @@ require_relative "database_setup.rb"
 
 require_relative "models/user"
 require_relative "models/place"
+require_relative "models/like"
 require_relative "controllers/main"
 require_relative "controllers/users"
 require_relative "controllers/places"
+require_relative "controllers/likes"
 
 
 

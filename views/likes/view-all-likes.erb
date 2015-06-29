@@ -1,0 +1,14 @@
+<h1>These are all the liked places!</h1>
+
+<ol>
+<% Like.most_liked.each do |name|%>
+      <li>
+<p> <%= "#{name}" %></p>
+      </li>
+<% end %>
+</ol>
+
+<a href="/home">GO HOME!</a>
+
+
+
