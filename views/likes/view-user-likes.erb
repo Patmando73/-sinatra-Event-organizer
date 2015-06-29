@@ -1,0 +1,11 @@
+<h1>These are the places that <%= @user.name %> has made.</h1>
+
+<ol>
+  <% @user.users_likes.each do |name|%>
+      <li>
+        <p> <%= "#{name}" %></p>
+      </li>
+  <% end %>
+</ol>
+
+<a href="/home">GO HOME!</a>

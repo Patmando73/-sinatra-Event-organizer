@@ -24,3 +24,13 @@ get "/users-list" do
   @all =  User.all
   erb :"likes/users-list"
 end
+
+get "/view-user-likes" do
+  @user = User.find(params["user_id"])
+  erb :"likes/view-user-likes"
+end
+
+get "/user-list-single-view" do
+  @all =  User.all
+  erb :"likes/user-list-single-view"
+end
