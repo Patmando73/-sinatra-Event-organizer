@@ -9,6 +9,7 @@ class Like
     @id = options["id"]
     @place_id = options["place_id"]
     @user_id = options["user_id"]
+    @rating = options["rating"]
   end
 
 
@@ -17,20 +18,13 @@ class Like
 
     place_names = []
     num_of_likes = []
-    final_result = {}
 
     results.each do |name|
       place_names << name.values_at("name")
       num_of_likes << name.values_at("numoflikes")
     end
 
-    final_place = place_names.join(' ')
-    final_num = num_of_likes.join(' ')
-
-    end_place = final_place.split
-    end_num = final_num.split
-
-    final_result = Hash[end_place.zip end_num]
+    final_result = Hash[place_names.join(' ').split.zip num_of_likes.join(' ').split]
 
     end_result = []
 
@@ -40,7 +34,4 @@ class Like
 
     return end_result
   end
-
-
-
 end

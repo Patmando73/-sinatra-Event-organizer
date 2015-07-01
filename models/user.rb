@@ -22,23 +22,17 @@ class User
 
 
   def users_likes
-    results = CONNECTION.execute("SELECT p.name, COUNT(l.place_id) numoflikes FROM places p JOIN likes l on p.id = l.place_id WHERE l.user_id = #{@id} GROUP BY p.name ORDER BY COUNT(l.place_id) DESC;")
+    results = CONNECTION.execute("SELECT p.name, l.rating FROM places p JOIN likes l on p.id = l.place_id WHERE l.user_id = #{@id} GROUP BY p.name ORDER BY l.rating DESC;")
+
     place_names = []
-    num_of_likes = []
-    final_result = {}
+    place_ratings = []
 
     results.each do |name|
       place_names << name.values_at("name")
-      num_of_likes << name.values_at("numoflikes")
+      place_ratings << name.values_at("rating")
     end
 
-    final_place = place_names.join(' ')
-    final_num = num_of_likes.join(' ')
-
-    end_place = final_place.split
-    end_num = final_num.split
-
-    final_result = Hash[end_place.zip end_num]
+    final_result = Hash[place_names.join(' ').split.zip place_ratings.join(' ').split]
 
     end_result = []
 

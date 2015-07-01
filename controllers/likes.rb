@@ -4,7 +4,7 @@ end
 
 get "/new-like" do
 
-  @new_like = Like.add("user_id" => params["user_id"], "place_id" => params["place_id"])
+  @new_like = Like.add("user_id" => params["user_id"], "place_id" => params["place_id"], "rating" => params["rating"])
 
   erb :"likes/new-like"
 end

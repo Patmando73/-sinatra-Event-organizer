@@ -1,15 +1,15 @@
-<h1>Welcome to Event Organizer pro</h1>
+<div class = "special"><h1>Welcome to Event Organizer pro</h1></div>
 
 <%if @name  %>
     <h2><%= @name %> has been deleted!</h2>
 <%end%>
 
 <h2>What Would you like to do?</h2>
-
+<nav>
 <ul>
   <li><a href="/manage-user">Manage user</a></li><br>
   <li><a href="/manage-place">Manage place</a></li><br>
   <li><a href="/manage-like">Manage like</a></li><br>
 </ul>
-
+</nav>
 

@@ -11,4 +11,5 @@ CONNECTION.execute("CREATE TABLE IF NOT EXISTS likes (id PRIMARY KEY, user_id IN
 # CONNECTION.execute('INSERT INTO users (name) VALUES ("patrick");')
 
 
+
 CONNECTION.results_as_hash = true
